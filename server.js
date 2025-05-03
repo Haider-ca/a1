@@ -28,10 +28,14 @@ async function main() {
   // 2. Session setup (1-hour TTL)
   app.use(session({
     secret: MONGODB_SESSION_SECRET,
-    store: MongoStore.create({ client, collectionName: 'sessions', ttl: 60*60 }),
+    store: MongoStore.create({
+      client,
+      collectionName: 'sessions',
+      ttl: 60 * 60
+    }),
     resave: false,
     saveUninitialized: false,
-    cookie: { maxAge: 60*60*1000 }
+    cookie: { maxAge: 60 * 60 * 1000 }
   }));
 
   // 3. ROUTES
@@ -89,7 +93,7 @@ async function main() {
   app.get('/members', (req, res) => {
     if (!req.session.user) return res.redirect('/');
     const imgs = ['image1.jpg','image2.jpg','image3.jpg'];
-    const randomImage = imgs[Math.floor(Math.random()*imgs.length)];
+    const randomImage = imgs[Math.floor(Math.random() * imgs.length)];
     res.render('members', { user: req.session.user, randomImage });
   });
 
@@ -103,6 +107,7 @@ async function main() {
     res.status(404).render('404');
   });
 
+  // Start server
   app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
 }
 
