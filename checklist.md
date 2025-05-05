@@ -16,7 +16,7 @@ Student Set: 2D
 [x]  Password is BCrypted in the MongoDB database.
 [x]  Your site is hosted in a hosting service like Qoddi.
 [x]  A 404 page that "catches" all invalid page hits and that sets the status code to 404.
-[]x  Session information is stored in an encrypted MongoDB session database. Sessions expire after 1 hour.
+[x]  Session information is stored in an encrypted MongoDB session database. Sessions expire after 1 hour.
  
 50/50 (Total grade out of 50, 5 marks each x 10 items)
 
